@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>studikasus 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col justify-center">
+    <h1 class="text-center text-xl font-bold mt-20">KALO LO GABUT!!</h1>
+    <!-- <button onclick="showPrompt()" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mx-auto mt-10 object-top">
+     Click Saiyah
+      </button> -->
+
+      <button onclick="showcatch()" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mx-auto mt-10 object-top">
+        Click Saia
+         </button>
+
+   
+<script>
+        function showcatch(){
+          const validasiAngka = /^[0-9]+$/;
+          const spasi = ""
+          let angka = prompt('Pilih hal yang akan dilakukan(1/2) \n 1. Membulatkan angka \n 2. Menghitung umur');
+            try{
+              if(angka > 2 || angka < 1 && angka){
+                throw "Error1";
+               
+              }else if(!angka){
+                throw "Error2";
+              }else if(!angka.match(validasiAngka)){
+                throw "Error3";
+              }
+            }catch(err){
+              if(err == "Error1"){
+                alert('Error! pilihan tidak tersedia')
+              }
+              if(err == "Error2"){
+                alert('Error!, anda tidak menginput pilihan')
+              }
+              if(err == "Error3"){
+                
+                alert('Error! nilai bukan angka')
+              }
+            }
+
+            if(angka == 1) {
+               
+                const satu =  prompt('Masukan angka desimal dengan .')
+           
+                  let cek = satu.includes(",")
+                  let t = satu.includes(".")
+
+                  try{
+                      if(cek == true){
+                        throw("ErrorAngka1")
+                      }else if(!t && satu){
+                        throw("ErrorAngka2")
+                        
+                      }else if(!satu){
+                        throw("ErrorAngka3")
+                      }else if(t == true){
+                        let bulat = Math.round(satu)
+                        alert(satu + '=' + bulat)
+                      }
+                    }catch(ErrorAngka){
+                      if(ErrorAngka == "ErrorAngka1"){
+                        alert('Error! gunakan titik (.) sebagai tanda desimal')
+                      }
+                      if(ErrorAngka == "ErrorAngka2"){
+                        alert('harus angka desimal')
+                        
+                      }
+                      if(ErrorAngka == "ErrorAngka3"){
+                      alert('error! anda tidak mengisi apapun')
+                      }
+
+                  }
+        
+              
+            }else if(angka == 2){
+                let tahun =  prompt('Masukan tahun lahir anda')
+                let date = new Date();
+                year = date.getFullYear();
+
+
+                try{
+                  if(tahun > year){
+                    throw("Errorp1")
+                
+                  }else if(!tahun){
+                    throw("Errorp2")
+                  }else if(!tahun.match(validasiAngka)){
+                    throw("Errorp3")
+                  }else{
+                    let umur = year - tahun
+                    alert('Umur anda sekarang = ' + umur)
+                  }
+                }catch(errorpilihan3){
+                  if(errorpilihan3 == "Errorp1"){
+                    alert('Error! tahun tidak diperkenankan')
+                  }else if(errorpilihan3 == "Errorp2"){
+                    alert('Error! anda tidak mengisi input umur')
+                    
+                  }else if(errorpilihan3 == "Errorp3"){
+                    alert('Error! nilai bukan angka')
+
+                  }
+                }
+            }
+        }
+       
+
+
+
+      </script>
+</body>
+
+</html>
